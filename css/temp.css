@@ -1,0 +1,147 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: rgba(80, 80, 80, 1);
+    font-size: 14px;
+}
+
+body {
+    background-color: #F1F1F1;
+    min-height: 100vh;
+}
+
+.main-container-navigation-links-item svg {
+    width: 20px;
+}
+
+.active-link {
+	background-color: rgba(241, 241, 241, 1);
+}
+
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),10%,90%);
+	--fg: hsl(var(--hue),10%,10%);
+	--primary: hsl(var(--hue),90%,50%);
+	--trans-dur: 0.3s;
+	--trans-timing: cubic-bezier(0.65,0,0.35,1);
+	font-size: calc(14px + (30 - 14) * (100vw - 280px) / (3840 - 280));
+}
+
+.pl {
+	margin: auto;
+	position: relative;
+	width: 8em;
+	height: 8em;
+}
+
+.pl:before,
+.pl:after {
+	animation: pl-before 2.5s var(--trans-timing) infinite;
+	background-color: currentColor;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	width: 25%;
+	height: 25%;
+	transform-origin: 100% 100%;
+}
+
+.pl:after {
+	animation-name: pl-after;
+}
+
+@keyframes pl-before {
+	from {
+		transform: rotate(0) translate(-100%,-100%) rotate(-90deg);
+	}
+	20% {
+		transform: rotate(0) translate(-100%,-100%) rotate(90deg);
+	}
+	40% {
+		transform: rotate(0) translate(-300%,-100%) rotate(90deg);
+	}
+	60% {
+		transform: rotate(90deg) translate(-300%,-100%) rotate(-90deg);
+	}
+	80% {
+		transform: rotate(90deg) translate(-100%,-100%) rotate(-90deg);
+	}
+	to {
+		transform: rotate(90deg) translate(-100%,100%) rotate(90deg);
+	}
+}
+
+@keyframes pl-after {
+	from,
+	20% {
+		transform: rotate(0) scale(1,1);
+	}
+	40% {
+		transform: rotate(0) scale(3,1);
+	}
+	60% {
+		transform: rotate(90deg) scale(3,1);
+	}
+	80% {
+		transform: rotate(90deg) scale(1,1);
+	}
+	to {
+		transform: rotate(90deg) scale(1,1) translate(0,200%);
+	}
+}
+
+@media only screen and (min-width: 1600px) {
+	
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1599px) {
+
+}
+
+@media only screen and (max-width: 960px) {
+	.main-text {
+		font-size: 14px !important;
+	}
+
+	.header-menu {
+		gap: 10px !important;
+	}
+
+	.header-menu-item-text p {
+		font-size: 12px !important;
+	}
+
+	.main-container {
+		flex-direction: column-reverse;
+	}
+
+	.main-container-left {
+		width: 100% !important;
+		margin-top: 2%;
+	}
+
+	.main-container-right {
+		width: 100% !important;
+	}
+
+	.nav-menu-item-logo {
+		margin-left: 9px;
+	}
+
+	.nav-menu-item {
+		padding-left: 7px !important;
+		padding-right: 7px !important;
+	}
+
+	.nav-menu-item p {
+		display: none;
+	}
+
+	.main-container-profile-avatar img {
+		width: 35% !important;
+	}
+}
