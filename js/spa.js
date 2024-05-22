@@ -2,12 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPage();
 
     window.addEventListener('popstate', renderPage);
-
-    const savedPath = localStorage.getItem('savedPath');
-    if (savedPath) {
-        navigateTo(savedPath);
-        localStorage.removeItem('savedPath');
-    }
 });
 
 const renderPage = () => {
@@ -54,8 +48,4 @@ document.getElementById('mapButton').addEventListener('click', (event) => {
 document.getElementById('timer-link').addEventListener('click', (event) => {
     event.preventDefault();
     navigateTo('/timer');
-});
-
-window.addEventListener('beforeunload', () => {
-    localStorage.setItem('savedPath', window.location.pathname);
 });
