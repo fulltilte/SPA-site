@@ -8,7 +8,7 @@ const renderPage = () => {
     const path = window.location.pathname;
 
     const routes = {
-        '/': '/activity.html',
+        '/activity': '/activity.html',
         '/map': '/map.html',
         '/timer': '/timer.html'
     };
@@ -37,7 +37,7 @@ const navigateTo = (path) => {
 
 document.getElementById('act-link').addEventListener('click', (event) => {
     event.preventDefault();
-    navigateTo('/');
+    navigateTo('/activity');
 });
 
 document.getElementById('mapButton').addEventListener('click', (event) => {
