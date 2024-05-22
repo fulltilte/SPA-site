@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     renderPage();
 
-    // Обработка изменений в адресной строке при использовании кнопок браузера "Назад" и "Вперед"
     window.addEventListener('popstate', renderPage);
 });
 
 const renderPage = () => {
-    const path = window.location.pathname; // получаем текущий путь
+    const path = window.location.pathname;
 
     const routes = {
         '/': '/activity.html',
@@ -31,25 +30,22 @@ const renderPage = () => {
         });
 };
 
-// Функция для обновления адресной строки и вызова renderPage
 const navigateTo = (path) => {
     history.pushState(null, null, path);
     renderPage();
 };
 
 document.getElementById('act-link').addEventListener('click', (event) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение ссылки
+    event.preventDefault();
     navigateTo('/');
 });
 
 document.getElementById('mapButton').addEventListener('click', (event) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение ссылки
+    event.preventDefault(); 
     navigateTo('/map');
 });
 
 document.getElementById('timer-link').addEventListener('click', (event) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение ссылки
+    event.preventDefault();
     navigateTo('/timer');
 });
-
-// Добавьте аналогичные обработчики для других ссылок, если они есть
