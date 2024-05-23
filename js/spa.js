@@ -2,30 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPage();
 
     window.addEventListener('popstate', renderPage);
-
-    document.getElementById('act-link').addEventListener('click', (event) => {
-        event.preventDefault();
-        navigateTo('/');
-    });
-
-    document.getElementById('map-link').addEventListener('click', (event) => {
-        event.preventDefault();
-        navigateTo('/map');
-    });
-
-    document.getElementById('timer-link').addEventListener('click', (event) => {
-        event.preventDefault();
-        navigateTo('/timer');
-    });
 });
 
 const renderPage = () => {
-    const path = window.location.search.substring(1);
+    const path = window.location.pathname;
 
     const routes = {
         '': '/activity.html',
-        'map': '/map.html',
-        'timer': '/timer.html'
+        '/map': '/map.html',
+        '/timer': '/timer.html'
     };
 
     const pagePath = routes[path] || '/activity.html';
@@ -46,6 +31,21 @@ const renderPage = () => {
 };
 
 const navigateTo = (path) => {
-    history.pushState(null, null, `?${path}`);
+    history.pushState(null, null, path);
     renderPage();
 };
+
+document.getElementById('act-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateTo('/');
+});
+
+document.getElementById('mapButton').addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateTo('/map');
+});
+
+document.getElementById('timer-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    navigateTo('/timer');
+});
